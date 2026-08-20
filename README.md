@@ -1,9 +1,13 @@
 Student Exam Score Predictor
+
 Team Members :
+
 2420030053 – K. Yasaswi
 2420030037 – G. Poojitha
 2420030499 – S. Anjana
+
 Supervisor : Dr. N. Sunanda
+
 Abstract : 
 A student's academic performance is influenced by factors such as study consistency, attendance, and demographic background. 
 This project builds a regression-based system to estimate exam scores using academic and demographic data. After cleaning and preprocessing the dataset,
