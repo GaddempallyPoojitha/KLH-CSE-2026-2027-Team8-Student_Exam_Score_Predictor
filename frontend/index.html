@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScoreSense AI | Student Exam Predictor</title>
+    <link rel="stylesheet" href="/frontend/style.css">
+    <script src="/frontend/script.js" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a href="/" class="brand">
+                <span class="brand-icon">S</span>
+                <span>ScoreSense<span class="brand-ai"> AI</span>
+                <small>ACADEMIC INTELLIGENCE</small></span>
+            </a>
+
+            <div class="nav-label">WORKSPACE</div>
+            <a class="nav-link active" href="#predict"><span>▦</span> Predict Score</a>
+            <a class="nav-link" href="#about"><span>◈</span> About Project</a>
+            <a class="nav-link" href="#model"><span>⌁</span> Model Insights</a>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-art">✦</div>
+                <h3>Your potential,<br>made measurable.</h3>
+                <p>Use data-driven insights to understand academic performance.</p>
+                <div class="sidebar-footer">STUDENT EXAM SCORE PREDICTOR<br>DATA SCIENCE PROJECT · 2026</div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <div class="eyebrow">STUDENT ANALYTICS / PREDICTION</div>
+                    <h1>Student Exam Score Predictor</h1>
+                    <p class="subtitle">Understand the factors that shape academic performance.</p>
+                </div>
+                <div class="model-pill"><span class="status-dot"></span> Linear Regression Model</div>
+            </header>
+
+            <section class="welcome-banner">
+                <div>
+                    <div class="banner-tag">✦ &nbsp; YOUR ACADEMIC JOURNEY</div>
+                    <h2>Every student has the potential to excel.</h2>
+                    <p>Enter student details below to generate a personalized exam score estimate.</p>
+                </div>
+                <div class="banner-symbol">✧</div>
+            </section>
+
+            <div class="dashboard-grid" id="predict">
+                <section class="panel form-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <span class="section-kicker">PREDICTION INPUT</span>
+                            <h2>Student Information</h2>
+                            <p>Complete all fields to generate your prediction.</p>
+                        </div>
+                        <span class="heading-icon">⌘</span>
+                    </div>
+
+                    <form id="predictionForm">
+                        <div class="form-section">
+                            <div class="form-section-title"><span class="number">01</span><div><h3>Academic Performance</h3><p>Your learning and assessment history</p></div></div>
+                            <div class="input-grid">
+                                <label>Hours Studied <span class="field-unit">(per day)</span>
+                                    <input id="Hours_Studied" type="number" min="0" max="24" step="any" placeholder="e.g. 5" required>
+                                </label>
+                                <label>Attendance <span class="field-unit">(%)</span>
+                                    <input id="Attendance" type="number" min="0" max="100" step="any" placeholder="e.g. 85" required>
+                                </label>
+                                <label>Previous Scores <span class="field-unit">(/100)</span>
+                                    <input id="Previous_Scores" type="number" min="0" max="100" step="any" placeholder="e.g. 72" required>
+                                </label>
+                                <label>Tutoring Sessions <span class="field-unit">(per month)</span>
+                                    <input id="Tutoring_Sessions" type="number" min="0" max="100" step="1" placeholder="e.g. 2" required>
+                                </label>
+                                <label>Motivation Level
+                                    <select id="Motivation_Level" required><option value="" disabled selected>Select level</option><option>Low</option><option>Medium</option><option>High</option></select>
+                                </label>
+                                <label>Extracurricular Activities
+                                    <select id="Extracurricular_Activities" required><option value="" disabled selected>Select option</option><option>Yes</option><option>No</option></select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title"><span class="number">02</span><div><h3>Study &amp; Lifestyle</h3><p>Daily habits that support learning</p></div></div>
+                            <div class="input-grid">
+                                <label>Sleep Hours <span class="field-unit">(per day)</span>
+                                    <input id="Sleep_Hours" type="number" min="0" max="24" step="any" placeholder="e.g. 7" required>
+                                </label>
+                                <label>Physical Activity <span class="field-unit">(hours/day)</span>
+                                    <input id="Physical_Activity" type="number" min="0" max="24" step="any" placeholder="e.g. 2" required>
+                                </label>
+                                <label>Learning Disabilities
+                                    <select id="Learning_Disabilities" required><option value="" disabled selected>Select option</option><option>Yes</option><option>No</option></select>
+                                </label>
+                                <label>Gender
+                                    <select id="Gender" required><option value="" disabled selected>Select option</option><option>Male</option><option>Female</option></select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title"><span class="number">03</span><div><h3>Academic Environment</h3><p>Resources and learning surroundings</p></div></div>
+                            <div class="input-grid">
+                                <label>Access to Resources
+                                    <select id="Access_to_Resources" required><option value="" disabled selected>Select level</option><option>Low</option><option>Medium</option><option>High</option></select>
+                                </label>
+                                <label>Internet Access
+                                    <select id="Internet_Access" required><option value="" disabled selected>Select option</option><option>Yes</option><option>No</option></select>
+                                </label>
+                                <label>Teacher Quality
+                                    <select id="Teacher_Quality" required><option value="" disabled selected>Select level</option><option>Low</option><option>Medium</option><option>High</option></select>
+                                </label>
+                                <label>School Type
+                                    <select id="School_Type" required><option value="" disabled selected>Select type</option><option>Public</option><option>Private</option></select>
+                                </label>
+                                <label>Peer Influence
+                                    <select id="Peer_Influence" required><option value="" disabled selected>Select influence</option><option>Negative</option><option>Neutral</option><option>Positive</option></select>
+                                </label>
+                                <label>Distance from Home
+                                    <select id="Distance_from_Home" required><option value="" disabled selected>Select distance</option><option>Near</option><option>Moderate</option><option>Far</option></select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title"><span class="number">04</span><div><h3>Family &amp; Background</h3><p>Additional factors in the dataset</p></div></div>
+                            <div class="input-grid">
+                                <label>Parental Involvement
+                                    <select id="Parental_Involvement" required><option value="" disabled selected>Select level</option><option>Low</option><option>Medium</option><option>High</option></select>
+                                </label>
+                                <label>Family Income
+                                    <select id="Family_Income" required><option value="" disabled selected>Select level</option><option>Low</option><option>Medium</option><option>High</option></select>
+                                </label>
+                                <label>Parental Education Level
+                                    <select id="Parental_Education_Level" required><option value="" disabled selected>Select level</option><option>High School</option><option>College</option><option>Postgraduate</option></select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <p><span class="status-dot"></span> Your information is used to generate this prediction.</p>
+                            <button type="submit" id="predictButton"><span>Generate Prediction</span><span class="button-arrow">↗</span></button>
+                        </div>
+                    </form>
+                </section>
+
+                <aside class="results-column">
+                    <section class="panel result-panel" id="result" aria-live="polite">
+                        <div class="result-topline"><span class="section-kicker">YOUR RESULTS</span><span class="result-sparkle">✦</span></div>
+                        <h2>Predicted Exam Score</h2>
+                        <p class="result-description">Your estimated academic score out of 100.</p>
+                        <div class="score-ring" id="scoreRing">
+                            <div class="score-ring-inner">
+                                <span class="score-label">ESTIMATED SCORE</span>
+                                <div class="score-number" id="score">--<span>/100</span></div>
+                                <span class="score-grade" id="grade">Awaiting prediction</span>
+                            </div>
+                        </div>
+                        <p class="result-message" id="message">Complete the student information and select Generate Prediction to see your result.</p>
+                        <div class="result-divider"></div>
+                        <div class="result-model"><span class="mini-model-icon">✧</span><div><strong>Linear Regression</strong><small>Selected machine learning model</small></div><span class="model-check">✓</span></div>
+                    </section>
+
+                    <section class="panel metrics-panel" id="model">
+                        <div class="panel-heading compact"><div><span class="section-kicker">MODEL PERFORMANCE</span><h2>Evaluation Metrics</h2></div></div>
+                        <div class="metric-row"><div><span class="metric-name">R² Score</span><small>Variance explained</small></div><strong>0.7696</strong></div>
+                        <div class="metric-track"><span style="width:76.96%"></span></div>
+                        <div class="metric-row"><div><span class="metric-name">RMSE</span><small>Root mean squared error</small></div><strong>1.8044</strong></div>
+                        <p class="metrics-note">Measured on the held-out test dataset. These are evaluation metrics, not a guarantee for an individual prediction.</p>
+                    </section>
+
+                    <section class="panel guide-panel">
+                        <span class="section-kicker">SCORE GUIDE</span>
+                        <h2>Understand your score</h2>
+                        <div class="guide-row"><span class="guide-dot excellent"></span><span>90–100</span><strong>Excellent</strong></div>
+                        <div class="guide-row"><span class="guide-dot very-good"></span><span>75–89</span><strong>Very Good</strong></div>
+                        <div class="guide-row"><span class="guide-dot good"></span><span>60–74</span><strong>Good</strong></div>
+                        <div class="guide-row"><span class="guide-dot improve"></span><span>Below 60</span><strong>Needs focus</strong></div>
+                        <p class="guide-note">This guide is an informal interpretation, not an official grading scale.</p>
+                    </section>
+
+                    <section class="insight-card" id="about"><span class="insight-icon">✦</span><div><h3>Data meets potential.</h3><p>This project explores relationships between student factors and exam performance using machine learning.</p></div></section>
+                </aside>
+            </div>
+
+            <footer class="page-footer"><span>ScoreSense AI · Student Exam Score Predictor</span><span>Built with Python · Flask · Scikit-learn</span></footer>
+        </main>
+    </div>
+</body>
+</html>
